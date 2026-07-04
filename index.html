@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منصة السعيد لاختبارات المحاكاة — Al Saeed ETC</title>
+<meta name="description" content="منصة اختبارات المحاكاة من Al Saeed for Education, Training & Consulting — محاكاة PMP®‎ وفق ECO 2026 وPMBOK®‎ 8، وقريبًا PMI-RMP®‎ وGRCP™‎ وPMI-ACP®‎.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0b4034;--green2:#06251c;--em:#0e7a55;--em2:#17a06d;--gold:#c9a13b;--gold2:#e2bf67;
+--ink:#182420;--mut:#75857c;--line:#d7e5dc;--bg:#f4f8f5;--card:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.9}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* عزل النصوص اللاتينية والأرقام داخل الجمل العربية */
+.ltr,bdi{direction:ltr;unicode-bidi:isolate}
+
+/* ===== الشريط العلوي ===== */
+.nav{background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;position:sticky;top:0;z-index:50;box-shadow:0 2px 16px rgba(6,37,28,.35)}
+.nav .wrap{display:flex;align-items:center;gap:12px;padding:10px 20px}
+.logo{width:46px;height:46px;border-radius:12px;background:#fff;padding:4px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(201,161,59,.35)}
+.logo img{width:100%;height:100%;object-fit:contain}
+.brand b{font-size:16px;display:block}
+.brand span{font-size:10.5px;opacity:.75;letter-spacing:.3px}
+.nav .sp{flex:1}
+.nbtn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:10px;padding:9px 18px;font-size:13px;transition:.2s}
+.nbtn:hover{background:rgba(255,255,255,.22)}
+.nbtn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--green2);border:none;font-weight:800}
+.nav a.plain{font-size:13px;opacity:.85;padding:6px 4px}
+.nav a.plain:hover{opacity:1;color:var(--gold2)}
+
+/* ===== البطل ===== */
+.hero{background:linear-gradient(150deg,var(--green2) 0%,var(--green) 45%,#0d5a43 100%);color:#fff;overflow:hidden;position:relative}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5;animation:drift 14s ease-in-out infinite alternate}
+.blob.b1{width:420px;height:420px;inset-inline-end:-140px;top:-140px;background:radial-gradient(circle,rgba(201,161,59,.45),transparent 68%)}
+.blob.b2{width:340px;height:340px;inset-inline-start:-120px;bottom:-160px;background:radial-gradient(circle,rgba(23,160,109,.5),transparent 68%);animation-delay:-7s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-36px,26px) scale(1.12)}}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:60px 20px 56px;position:relative}
+.kicker{display:inline-block;background:rgba(201,161,59,.16);border:1px solid rgba(226,191,103,.5);color:var(--gold2);border-radius:20px;padding:5px 16px;font-size:12.5px;font-weight:700;margin-bottom:16px}
+.hero h1{font-size:clamp(26px,4vw,42px);font-weight:900;line-height:1.55}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero .sub{font-size:15px;opacity:.9;margin:16px 0 24px;max-width:540px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.cta .go{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--green2);border:none;border-radius:14px;padding:15px 32px;font-size:16px;font-weight:800;box-shadow:0 8px 24px rgba(201,161,59,.35);transition:.2s}
+.cta .go:hover{transform:translateY(-2px)}
+.cta .ghost{background:transparent;border:1.5px solid rgba(255,255,255,.4);color:#fff;border-radius:14px;padding:15px 28px;font-size:15px;transition:.2s}
+.cta .ghost:hover{border-color:#fff}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px}
+.stats div b{font-size:26px;color:var(--gold2);display:block;font-variant-numeric:tabular-nums}
+.stats div span{font-size:12px;opacity:.75}
+
+/* بطاقة سؤال حية عائمة */
+.qpreview{background:#fff;color:var(--ink);border-radius:20px;padding:24px;box-shadow:0 30px 70px rgba(0,0,0,.4);transform:rotate(-2deg);position:relative;animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(-1.4deg) translateY(-12px)}}
+.qpreview .qtop{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--mut);border-bottom:1.5px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+.qpreview .qtop .tm{background:var(--green2);color:#9fe0b8;border-radius:8px;padding:4px 12px;font-variant-numeric:tabular-nums;letter-spacing:1px;direction:ltr}
+.qpreview h4{font-size:13.5px;line-height:1.9;font-weight:700;margin-bottom:12px}
+.qpreview .op{border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;font-size:12.5px;margin-top:8px;display:flex;gap:8px}
+.qpreview .op b{color:var(--em)}
+.qpreview .op.sel{border-color:var(--em);background:#e7f5ee;box-shadow:0 0 0 1.5px var(--em);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 1.5px var(--em)}50%{box-shadow:0 0 0 4px rgba(14,122,85,.25)}}
+.qpreview .tag{position:absolute;top:-14px;inset-inline-start:22px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--green2);border-radius:20px;padding:5px 16px;font-size:11.5px;font-weight:800;box-shadow:0 5px 14px rgba(201,161,59,.4)}
+
+/* شريط شهادات متحرك */
+.marquee{background:var(--green2);color:#fff;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.marquee .track{display:flex;gap:0;width:max-content;animation:slide 26s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(50%)}}
+.marquee span{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;font-size:13px;font-weight:700;color:var(--gold2);white-space:nowrap;direction:ltr}
+.marquee span::after{content:"✦";color:rgba(255,255,255,.35);margin-inline-start:26px}
+
+/* ===== الأقسام ===== */
+section{padding:56px 0}
+.sec-h{text-align:center;margin-bottom:34px}
+.sec-h .eyebrow{color:var(--em);font-weight:800;font-size:13px;letter-spacing:.5px}
+.sec-h h2{font-size:clamp(21px,3vw,28px);font-weight:900;color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.f{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;transition:.25s}
+.f:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(11,64,52,.12);border-color:var(--em2)}
+.f .ic{font-size:26px}
+.f h3{font-size:15px;color:var(--green);margin:8px 0 6px}
+.f p{font-size:12.8px;color:var(--mut)}
+
+/* ظهور تدريجي عند التمرير */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* منصات المحاكاة */
+.sim{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.25s}
+.sim:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(11,64,52,.13)}
+.sim.live{border:2px solid var(--gold)}
+.sim .badge{position:absolute;top:14px;inset-inline-start:-34px;transform:rotate(45deg);background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--green2);font-size:10.5px;font-weight:900;padding:4px 40px}
+.sim .badge.soon{background:#e6efe9;color:var(--mut)}
+.sim .ic{font-size:30px}
+.sim h3{font-size:16px;color:var(--green);margin:10px 0 4px}
+.sim p{font-size:12.8px;color:var(--mut);flex:1}
+.sim .meta{display:flex;gap:14px;font-size:11.5px;color:var(--em);font-weight:700;margin:12px 0}
+.sim .go{border:none;border-radius:12px;padding:12px;font-size:14px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--em),var(--em2));transition:.2s}
+.sim .go:hover{filter:brightness(1.08)}
+.sim .go.soon{background:#e6efe9;color:var(--mut);cursor:default}
+
+/* الرسوم */
+.price{background:linear-gradient(135deg,#fdf9ee,#fff);border:2px solid var(--gold);border-radius:24px;max-width:560px;margin:0 auto;padding:36px;text-align:center;box-shadow:0 16px 40px rgba(201,161,59,.15)}
+.price .amount{font-size:52px;font-weight:900;color:var(--green);direction:ltr}
+.price .amount small{font-size:22px;color:var(--gold)}
+.price p{color:var(--mut);font-size:13.5px;margin:10px 0 22px}
+.price ul{list-style:none;text-align:start;margin:0 auto 24px;max-width:400px;font-size:13.5px}
+.price li{padding:7px 0;border-bottom:1px dashed var(--line)}
+.price li::before{content:"✔ ";color:var(--em);font-weight:800}
+.price .go{background:linear-gradient(135deg,var(--em),var(--em2));color:#fff;border:none;border-radius:14px;padding:15px 40px;font-size:16px;font-weight:800;box-shadow:0 8px 22px rgba(14,122,85,.3);transition:.2s}
+.price .go:hover{transform:translateY(-2px)}
+.price .alt{display:block;margin-top:14px;font-size:12.5px;color:var(--em);font-weight:700}
+
+/* المؤسس */
+.founder{background:linear-gradient(135deg,var(--green2),var(--green));color:#fff;border-radius:26px;padding:36px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;position:relative;overflow:hidden}
+.founder::after{content:"";position:absolute;inset-inline-end:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(201,161,59,.3),transparent 70%)}
+.founder img{width:170px;height:170px;border-radius:50%;object-fit:cover;border:4px solid var(--gold);box-shadow:0 12px 30px rgba(0,0,0,.35);background:#fff}
+.founder .role{color:var(--gold2);font-size:12.5px;font-weight:800}
+.founder h3{font-size:22px;font-weight:900;margin:4px 0 8px}
+.founder p{font-size:13.5px;opacity:.88;max-width:560px}
+.founder .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.founder .chips span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:4px 14px;font-size:11.5px;direction:ltr}
+
+/* دورات أخرى */
+.course{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;transition:.25s}
+.course:hover{border-color:var(--gold);box-shadow:0 12px 28px rgba(11,64,52,.1);transform:translateY(-3px)}
+.course .cat{font-size:10.5px;font-weight:800;color:var(--gold);background:#fbf4e2;border-radius:12px;padding:3px 12px;align-self:flex-start}
+.course h3{font-size:15px;color:var(--green);margin:10px 0 4px}
+.course p{font-size:12.5px;color:var(--mut);flex:1}
+.course a{margin-top:12px;font-size:13px;color:var(--em);font-weight:800}
+
+.cta-band{background:linear-gradient(135deg,var(--green2),var(--green));color:#fff;text-align:center;border-radius:24px;padding:44px 24px;margin:0 20px;position:relative;overflow:hidden}
+.cta-band .blob{opacity:.4}
+.cta-band h2{font-size:clamp(20px,3vw,26px);font-weight:900;position:relative}
+.cta-band p{opacity:.85;margin:10px 0 22px;font-size:14px;position:relative}
+.cta-band .cta{position:relative}
+
+/* التذييل مثل الموقع الرئيسي */
+footer{background:var(--green2);color:#fff;margin-top:56px;padding:44px 0 26px;font-size:13px}
+footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:26px;margin-bottom:26px}
+footer h4{color:var(--gold2);font-size:13.5px;margin-bottom:10px}
+footer .cols a{display:block;padding:3px 0;opacity:.82;font-size:12.5px}
+footer .cols a:hover{opacity:1;color:var(--gold2)}
+footer .about img{width:52px;height:52px;border-radius:12px;background:#fff;padding:4px;margin-bottom:10px}
+footer .about p{opacity:.8;font-size:12.5px;max-width:280px}
+footer .cr{border-top:1px solid rgba(255,255,255,.12);padding-top:16px;text-align:center;opacity:.7;font-size:12px}
+footer .ph{direction:ltr;display:inline-block;font-weight:700;color:var(--gold2)}
+footer a.hl{color:var(--gold2);font-weight:700}
+
+@media(max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;padding:42px 20px 46px}
+  .qpreview{transform:none;max-width:440px;animation:floaty2 6s ease-in-out infinite}
+  @keyframes floaty2{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .nav a.plain{display:none}
+  .founder{grid-template-columns:1fr;text-align:center;justify-items:center}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <div class="logo"><img src="https://alsaeed-etc.com/main/images/logo/logo3.png" alt="Al Saeed ETC" onerror="this.parentNode.textContent='س'"></div>
+  <div class="brand"><b>منصة السعيد لاختبارات المحاكاة</b><span>Al Saeed for Education, Training &amp; Consulting</span></div>
+  <span class="sp"></span>
+  <a class="plain" href="#sims">المحاكيات</a>
+  <a class="plain" href="#features">المميزات</a>
+  <a class="plain" href="#price">الرسوم</a>
+  <a class="plain" href="#founder">المؤسس</a>
+  <a class="plain" id="siteLink" href="https://al-ltc.com" target="_blank" rel="noopener">🌐 الموقع الرئيسي</a>
+  <button class="nbtn" onclick="location.href='/auth.html'">دخول</button>
+  <button class="nbtn gold" onclick="location.href='/auth.html#register'">سجّل الآن</button>
+</div></nav>
+
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap">
+  <div>
+    <span class="kicker"><bdi>PMI-ATP | AXELOS | NEBOSH | OCEG</bdi> — اعتمادات دولية</span>
+    <h1>بوابتك إلى <em>الشهادات المهنية العالمية</em> — تدرّب كأنك في قاعة الاختبار الحقيقية</h1>
+    <p class="sub">منصة اختبارات المحاكاة من <bdi>Al Saeed ETC</bdi>: محاكاة <bdi>PMP®‎</bdi> متاحة الآن وفق <bdi>ECO</bdi> يوليو <bdi>2026</bdi> و<bdi>PMBOK®‎</bdi> الإصدار الثامن — بمؤقت رسمي (<bdi>240</bdi> دقيقة / <bdi>185</bdi> سؤالًا) وكل أنماط الأسئلة الجديدة. وقريبًا: <bdi>PMI-RMP®‎</bdi> و<bdi>GRCP™‎</bdi> و<bdi>PMI-ACP®‎</bdi>.</p>
+    <div class="cta">
+      <button class="go" onclick="location.href='/auth.html#register'">🚀 ابدأ رحلتك الآن</button>
+      <button class="ghost" onclick="location.href='/auth.html'">لديّ حساب — دخول</button>
+    </div>
+    <div class="stats">
+      <div><b><span class="cnt" data-n="5000">0</span>+</b><span>متدرب حول العالم</span></div>
+      <div><b><span class="cnt" data-n="95">0</span>%+</b><span>نسبة نجاح</span></div>
+      <div><b><span class="cnt" data-n="20">0</span>+</b><span>دورة معتمدة</span></div>
+      <div><b><span class="cnt" data-n="70">0</span>+</b><span>شهادة دولية للمؤسس</span></div>
+    </div>
+  </div>
+  <div class="qpreview" aria-hidden="true">
+    <span class="tag">محاكاة حية بنمط <bdi>Pearson VUE</bdi></span>
+    <div class="qtop"><span>سؤال <bdi>47</bdi> من <bdi>185</bdi> • مجال العمليات</span><span class="tm">03:12:45</span></div>
+    <h4>أثناء تنفيذ مشروع هجين، اكتشف الفريق أن أحد المتطلبات التنظيمية الجديدة يؤثر على نطاق التسليم القادم. ما أفضل تصرف لمدير المشروع؟</h4>
+    <div class="op"><b>A</b> تجاهل المتطلب حتى نهاية الإصدار الحالي</div>
+    <div class="op sel"><b>B</b> تقييم الأثر وتمريره عبر عملية ضبط التغيير</div>
+    <div class="op"><b>C</b> تنفيذ التغيير فورًا دون توثيق</div>
+    <div class="op"><b>D</b> تصعيد الأمر للراعي دون تحليل</div>
+  </div>
+</div></header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mq">
+  <span>PMP®‎ 2026</span><span>PMI-RMP®‎</span><span>PMI-ACP®‎</span><span>GRCP™‎</span><span>P3O®‎</span><span>PfMP®‎</span><span>PMO-CP</span><span>NEBOSH</span><span>IT GRC</span><span>PMBOK®‎ 8</span>
+</div></div>
+
+<section id="sims"><div class="wrap">
+  <div class="sec-h reveal"><div class="eyebrow">منصات المحاكاة</div>
+  <div class="grid" id="simsGrid"><!-- تُملأ ديناميكيًا من كتالوج الدورات --></div>
+  </div></section>
+
+<section id="features" style="background:#fff"><div class="wrap">
+  <div class="sec-h reveal"><div class="eyebrow">لماذا منصة السعيد؟</div><h2>تجربة اختبار مطابقة للواقع — بتقرير أداء احترافي</h2></div>
+  <div class="grid">
+    <div class="f reveal"><div class="ic">⏱️</div><h3>مؤقت الاختبار الرسمي</h3><p>توقيت نسبي مماثل تمامًا للاختبار الفعلي، مع حفظ تلقائي واستئناف المحاولة من حيث توقفت.</p></div>
+    <div class="f reveal"><div class="ic">🖱️</div><h3>كل أنماط الأسئلة الجديدة</h3><p>اختيار متعدد، إجابات متعددة، سحب وإفلات، مطابقة معززة، قوائم منسدلة، نقر على المخطط، وقراءة الرسوم.</p></div>
+    <div class="f reveal"><div class="ic">📊</div><h3>تقرير أداء بنمط <bdi>PMI</bdi></h3><p><bdi>Above Target / Target / Below Target</bdi> لكل مجال، مع مراجعة كاملة لكل سؤال وشرحه.</p></div>
+    <div class="f reveal"><div class="ic">📖</div><h3>مرجع في كل شرح</h3><p>كل سؤال مرفق بشرح وافٍ ومرجعه من مصادر الاختبار الرسمية — تتعلم من كل إجابة.</p></div>
+    <div class="f reveal"><div class="ic">🌐</div><h3>عربي / <bdi>English</bdi></h3><p>بدّل لغة السؤال الواحد أو الواجهة كاملة في أي لحظة — مثالي لمن سيختبر بالإنجليزية.</p></div>
+    <div class="f reveal"><div class="ic">🧮</div><h3>أدوات قاعة الاختبار</h3><p>حاسبة قابلة للسحب، وعلم 🚩 للمراجعة، وشاشة مراجعة الأسئلة — كما في المركز تمامًا.</p></div>
+  </div>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <div class="sec-h reveal"><div class="eyebrow">الاستثمار في شهادتك</div><h2>رسوم الاشتراك في منصة المحاكاة</h2></div>
+  <div class="price reveal">
+    <div class="amount"><span id="priceVal">120</span> <small id="priceCur">$</small></div>
+    <p id="priceNote">اشتراك كامل في منصة المحاكاة — بنك أسئلة <bdi>ECO 2026</bdi> + تقارير أداء بنمط <bdi>PMI</bdi></p>
+    <ul>
+      <li>وصول كامل لبنك الأسئلة والمحاكاة الكاملة (<bdi>185</bdi> سؤالًا)</li>
+      <li>الوضع التدريبي بتحقق فوري + وضع المحاكاة الحقيقية</li>
+      <li>تقارير أداء تفصيلية وسجل محاولاتك</li>
+      <li>الفيديوهات التعليمية المرافقة</li>
+      <li>تحديثات بنك الأسئلة دون رسوم إضافية</li>
+    </ul>
+    <button class="go" onclick="location.href='/auth.html#register'">سجّل وفعّل اشتراكك</button>
+    <a class="alt" id="payUrlLink" href="https://al-ltc.com" target="_blank" rel="noopener">أو اشترك ضمن باقات <bdi>Al Saeed ETC</bdi> الشاملة من الموقع الرئيسي ←</a>
+  </div>
+</div></section>
+
+<section id="founder" style="background:#fff"><div class="wrap">
+  <div class="founder reveal">
+    <img src="https://alsaeed-etc.com/main/images/instructor/1777666985_69f50ba9e5d0b.png" alt="د. محمد عطية" onerror="this.style.display='none'">
+    <div>
+      <div class="role">المؤسس والرئيس التنفيذي</div>
+      <h3>د. محمد عطية <bdi style="font-size:14px;opacity:.85">| Dr. Mohamed Attia</bdi></h3>
+      <p><bdi>Senior Consultant — PM, Digital Transformation &amp; AI</bdi> — خبرة تتجاوز <bdi>14</bdi> عامًا، وأكثر من <bdi>70</bdi> شهادة دولية، ومدرّب معتمد لدى أكبر جهات الاعتماد العالمية. درّب أكثر من <bdi>5,000</bdi> محترف حول العالم بنسبة نجاح تتجاوز <bdi>95%</bdi>.</p>
+      <div class="chips">
+        <span>PMI-ATP Trainer</span><span>PMP®‎ • PfMP®‎</span><span>GRCP™‎</span><span>P3O®‎</span><span>AI &amp; Digital Transformation</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="courses"><div class="wrap">
+  <div class="sec-h reveal"><div class="eyebrow">منظومة <bdi>Al Saeed ETC</bdi> المتكاملة</div><h2>الدورات الكاملة والمكتبة والباقات — على منصتنا الرئيسية</h2></div>
+  <div class="grid">
+    <div class="course reveal"><span class="cat">PMI</span><h3><bdi>PMP®‎ 2026</bdi> — الدورة الكاملة</h3><p><bdi>35</bdi> ساعة معتمدة تؤهلك للتقدم للاختبار، بمنهج <bdi>ECO 2026</bdi> و<bdi>PMBOK®‎ 8</bdi> مع دراسات حالة عملية.</p><a href="https://al-ltc.com" target="_blank" rel="noopener">التفاصيل والتسجيل ←</a></div>
+    <div class="course reveal"><span class="cat">PMI</span><h3><bdi>PMI-RMP®‎</bdi> — إدارة المخاطر</h3><p>احتراف تحليل المخاطر الكمي والنوعي والاستجابات وفق أحدث مخطط محتوى.</p><a href="https://al-ltc.com" target="_blank" rel="noopener">التفاصيل والتسجيل ←</a></div>
+    <div class="course reveal"><span class="cat">GRC</span><h3><bdi>GRCP™‎</bdi> — الحوكمة والمخاطر والامتثال</h3><p>شهادة <bdi>OCEG</bdi> الدولية بمنهج <bdi>LAPR</bdi> — للمتخصصين في الامتثال والرقابة.</p><a href="https://al-ltc.com" target="_blank" rel="noopener">التفاصيل والتسجيل ←</a></div>
+    <div class="course reveal"><span class="cat">PMI</span><h3><bdi>PMI-ACP®‎</bdi> — الممارس الرشيق</h3><p>سكرم وكانبان والممارسات الرشيقة الهجينة — الأسرع نموًا لدى <bdi>PMI</bdi>.</p><a href="https://al-ltc.com" target="_blank" rel="noopener">التفاصيل والتسجيل ←</a></div>
+    <div class="course reveal"><span class="cat">AXELOS</span><h3><bdi>P3O®‎</bdi> ومكاتب المشاريع</h3><p>مكاتب إدارة المحافظ والبرامج والمشاريع — من التأسيس إلى التشغيل.</p><a href="https://al-ltc.com" target="_blank" rel="noopener">التفاصيل والتسجيل ←</a></div>
+    <div class="course reveal"><span class="cat">استشارات</span><h3>استشارات <bdi>PMO</bdi> والتحول الرقمي</h3><p>بناء مكاتب إدارة المشاريع، أنظمة <bdi>KPI/OKR</bdi>، وحلول الذكاء الاصطناعي المؤسسي.</p><a href="https://al-ltc.com" target="_blank" rel="noopener">احجز استشارتك ←</a></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0">
+  <div class="cta-band reveal">
+    <div class="blob b1"></div>
+    <h2>ابدأ رحلة التميز المهني اليوم</h2>
+    <p>انضم لأكثر من <bdi>5,000</bdi> محترف طوّروا مستقبلهم مع <bdi>Al Saeed ETC</bdi></p>
+    <div class="cta" style="justify-content:center">
+      <button class="go" onclick="location.href='/auth.html#register'">🚀 أنشئ حسابك الآن</button>
+      <button class="ghost" onclick="window.open(document.getElementById('siteLink').href,'_blank')">💎 الباقات والدورات الكاملة</button>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div class="about">
+      <img src="https://alsaeed-etc.com/main/images/logo/logo3.png" alt="Al Saeed ETC" onerror="this.style.display='none'">
+      <b>Al Saeed for Education, Training &amp; Consulting Services</b>
+      <p>مؤسسة معتمدة دوليًا بخبرة تتجاوز <bdi>14</bdi> عامًا — تدريب مهني، تعليم، استشارات، ومنصات محاكاة للاختبارات الدولية.</p>
+    </div>
+    <div>
+      <h4>التدريب المهني</h4>
+      <a href="https://al-ltc.com" target="_blank" rel="noopener"><bdi>PMP®‎ 2026</bdi></a>
+      <a href="https://al-ltc.com" target="_blank" rel="noopener"><bdi>PMI-RMP®‎</bdi></a>
+      <a href="https://al-ltc.com" target="_blank" rel="noopener"><bdi>GRCP™‎</bdi></a>
+      <a href="https://al-ltc.com" target="_blank" rel="noopener"><bdi>PMI-ACP®‎</bdi></a>
+    </div>
+    <div>
+      <h4>الخدمات</h4>
+      <a href="#sims">اختبارات المحاكاة</a>
+      <a href="https://al-ltc.com" target="_blank" rel="noopener">المكتبة الرقمية</a>
+      <a href="https://al-ltc.com" target="_blank" rel="noopener">الباقات والأسعار</a>
+      <a href="https://al-ltc.com" target="_blank" rel="noopener">الاستشارات</a>
+    </div>
+    <div>
+      <h4>تواصل معنا</h4>
+      <a href="mailto:info@alsaeed-etc.com">📧 <bdi>info@alsaeed-etc.com</bdi></a>
+      <a id="footWaA" href="#">📞 <span class="ph" id="footPhone"></span></a>
+      <span id="footWa"></span>
+      <a class="hl" id="footSite" href="https://al-ltc.com" target="_blank" rel="noopener">🌐 al-ltc.com</a>
+    </div>
+  </div>
+  <div class="cr">
+    <span id="footLine">إعداد وتصميم وبرمجة © د. محمد عطية — جميع الحقوق محفوظة</span><br>
+    <bdi>PMP®‎</bdi> و<bdi>PMBOK®‎</bdi> علامتان مسجلتان لمعهد إدارة المشاريع <bdi>PMI</bdi> — هذه المنصة منتج تدريبي مستقل من <bdi>Al Saeed ETC</bdi>
+  </div>
+</div></footer>
+
+<script>
+/* عدّادات متحركة */
+function animateCounters(){
+  document.querySelectorAll('.cnt').forEach(el=>{
+    const n=+el.dataset.n,dur=1400,t0=performance.now();
+    function step(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(n*(1-Math.pow(1-p,3))).toLocaleString('en');if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  });
+}
+/* ظهور تدريجي */
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+/* مضاعفة شريط الشهادات للحركة المستمرة */
+const mq=document.getElementById('mq');mq.innerHTML+=mq.innerHTML;
+const reduceMotion=window.matchMedia?matchMedia('(prefers-reduced-motion: reduce)').matches:false;
+if(!reduceMotion&&window.requestAnimationFrame)animateCounters();
+else document.querySelectorAll('.cnt').forEach(el=>el.textContent=(+el.dataset.n).toLocaleString('en'));
+
+(async()=>{
+  try{
+    const r=await fetch('/api/app?action=boot');const b=await r.json();
+    if(b.courses)renderSims(b.courses);
+    const s=b.settings||{};
+    if(s.price)document.getElementById('priceVal').textContent=s.price;
+    if(s.currency)document.getElementById('priceCur').textContent=s.currency;
+    if(s.price_note)document.getElementById('priceNote').textContent=s.price_note;
+    if(s.pay_url){document.getElementById('payUrlLink').href=s.pay_url;}
+    if(s.site_url){document.getElementById('siteLink').href=s.site_url;document.getElementById('footSite').href=s.site_url;}
+    if(s.footer_ar)document.getElementById('footLine').textContent=s.footer_ar;
+    if(s.phone){document.getElementById('footPhone').textContent=s.phone;document.getElementById('footWaA').href='tel:'+s.phone.replace(/\s/g,'');}
+    if(s.whatsapp)document.getElementById('footWa').innerHTML='<a class="hl" href="https://wa.me/'+s.whatsapp.replace(/[^0-9]/g,'')+'" target="_blank" rel="noopener">💬 WhatsApp</a>';
+    const tot=Object.values(b.counts||{}).reduce((a,c)=>a+(+c||0),0);
+    if(tot){const q2=document.getElementById('stQ2');if(q2)q2.textContent=tot;}
+    /* مسجَّل بالفعل؟ الأزرار تتحول لدخول المنصة */
+    if(b.me){
+      document.querySelectorAll('.nbtn.gold,.cta .go,.price .go,.sim.live .go').forEach(el=>{el.textContent='🎯 ادخل للمنصة';el.onclick=()=>location.href=b.canExam?'/exam.html':'/dashboard.html';});
+      const lb=document.querySelector('.nav .nbtn:not(.gold)');
+      lb.textContent='👤 لوحتي';lb.onclick=()=>location.href='/dashboard.html';
+    }
+  }catch(e){}
+})();
+
+function renderSims(courses){
+  const g=document.getElementById('simsGrid');if(!g)return;
+  const esc=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+  g.innerHTML=(courses||[]).map(c=>{
+    const soon=!c.active;
+    const meta=soon?'<span>🔜 قيد الإعداد</span>'
+      :'<span>⏱️ '+Math.round((c.sec_per_q||78)*(c.qcount||0)/60)+' دقيقة</span><span>❓ '+(c.qcount||0)+' سؤالًا</span><span>🌐 عربي / EN</span>';
+    const btn=soon?'<button class="go soon">أُبلغني عند الإطلاق</button>'
+      :'<button class="go" onclick="location.href=\'/exam.html?course='+c.code+'\'">ابدأ المحاكاة</button>';
+    return '<div class="sim reveal">'
+      +(soon?'<span class="badge soon">قريبًا</span>':'<span class="badge">متاح الآن</span>')
+      +'<div class="ic">'+(c.icon||'📘')+'</div>'
+      +'<h3>'+esc(c.name_ar)+'</h3>'
+      +'<p>'+esc(c.desc_ar||'')+'</p>'
+      +'<div class="meta">'+meta+'</div>'+btn+'</div>';
+  }).join('');
+  document.querySelectorAll('#simsGrid .reveal').forEach(el=>el.classList.add('in'));
+}
+</script>
+</body>
+</html>
